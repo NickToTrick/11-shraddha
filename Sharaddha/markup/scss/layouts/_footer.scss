@@ -1,0 +1,372 @@
+#footer {
+	background-color: #b5daff;
+	position: relative;
+	color: $gray;
+	min-height: 588px;
+	a {
+		color: $gray;
+		text-decoration: none;
+		&:hover {
+			color: $light-blue;
+		}
+	}
+}
+.footer-holder {
+	padding: 46px 0 46px 0;
+	height: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	z-index: 3;
+	position: relative;
+	&::-webkit-scrollbar {
+		width: 0px;
+		background: rgba(255, 255, 255, 0.0);
+	}
+	@include media ('<tablet') {
+		padding: 25px 0 25px 0;
+	}
+	@include media ('<phone') {
+		padding: 30px 0 15px 0;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	address {
+		max-width: 235px;
+		margin: 0 auto;
+		font-style: normal;
+	}
+	h3 {
+		font-weight: normal;
+		margin-bottom: 18px;
+		@include media ('<widescreen') {
+			font-size: 20px;
+		}
+		@include media ('<desktop') {
+			font-size: 18px;
+		}
+		@include media ('<tablet') {
+			margin-bottom: 10px;
+		}
+		@include media ('<phone') {
+			margin-bottom: 5px;
+		}
+	}
+}
+.info-block {
+	@extend %listreset;
+	z-index: 3;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	@include media ('<desktop') {
+		flex-wrap: wrap;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+	@include media ('<tablet') {
+		font-size: 14px;
+	}
+		> li {
+			@include media ('<desktop') {
+				margin-bottom: 30px;
+			}
+			@include media ('<tablet') {
+				margin-bottom: 20px;
+			}
+			@include media ('<phone') {
+				margin-bottom: 15px;
+			}
+			&:first-child {
+				width: 23%;
+				@include media ('<desktop') {
+					width: 45%;
+				}
+				@include media ('<phone') {
+					width: 100%;
+				}
+				img {
+					margin: 9px 0 33px 0;
+					@include media ('<desktop') {
+						width: 38px;
+						margin: 8px 0 31px 0;
+					}
+					@include media ('<tablet') {
+						margin: 8px 0 21px 0;
+					}
+					@include media ('<phone') {
+						margin: 0 0 15px 0;
+					}
+				}
+			}
+			&:nth-child(2) {
+				width: 27%;
+				@include media ('<desktop') {
+					width: 55%;
+				}
+				@include media ('<phone') {
+					width: 100%;
+				}
+				img {
+					margin: 3px 60px 38px 0px;
+					@include media ('<desktop') {
+						width: 38px;
+						margin: 6px 0px 32px 0px;
+					}
+					@include media ('<tablet') {
+						margin: 6px 0px 22px 0px;
+					}
+					@include media ('<phone') {
+						margin: 0 0 15px 0;
+					}
+				}
+			}
+			&:nth-child(3) {
+				width: 20%;
+				@include media ('<desktop') {
+					width: 45%;
+				}
+				@include media ('<phone') {
+					width: 100%;
+				}
+				img {
+					margin: 1px 20px 28px 0px;
+					@include media ('<desktop') {
+						width: 40px;
+						margin: 1px 0 28px 0px;
+					}
+					@include media ('<tablet') {
+						margin: 1px 0 18px 0px;
+					}
+					@include media ('<phone') {
+						margin: 0 0 15px 0;
+					}
+				}
+			}
+			&:last-child {
+				width: 23%;
+				@include media ('<widescreen') {
+					width: 28%;
+				}
+				@include media ('<desktop') {
+					width: 55%;
+				}
+				@include media ('<phone') {
+					width: 100%;
+				}
+				img {
+					margin: 15px 0px 31px 0px;
+					@include media ('<widescreen') {
+						margin: 15px 0px 28px 0px;
+					}
+					@include media ('<desktop') {
+						margin: 5px 0px 31px 0px;
+						width: 55px;
+					}
+					@include media ('<tablet') {
+						margin: 5px 0px 21px 0px;
+					}
+					@include media ('<phone') {
+						margin: 0 0 15px 0;
+					}
+				}
+				h3 {
+					margin-left: 10px;
+					@include media ('<tablet') {
+						font-size: 16px;
+					}
+					@include media ('<phone') {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+}
+.tel-block {
+	@extend %listreset;
+	display: flex;
+	padding-left: 22px;
+	@include media ('<phone') {
+		padding-left: 0;
+		justify-content: center;
+	}
+	li {
+		&:first-child {
+			&:after {
+				content: '/';
+				margin: 0 4px 0 8px;
+			}
+		}
+	}
+}
+.email {
+	margin-left: 10px;
+	@include media ('<phone') {
+		margin-left: 0;
+	}
+}
+.sky {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	bottom: 142px;
+	height: 419px;
+	@include media ('<desktop') {
+		opacity: .4;
+	}
+	@include media ('<tablet') {
+		opacity: 1;
+	}
+	@include media ('<phone') {
+		opacity: .4;
+	}
+	.bg-stretch {
+		background-position: 50% 0;
+		background-size: auto 100%;
+		background-repeat: repeat-x;
+	}
+}
+.grass {
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 263px;
+	@include media ('<desktop') {
+		opacity: .4;
+	}
+	@include media ('<tablet') {
+		opacity: 1;
+	}
+	@include media ('<phone') {
+		opacity: .4;
+	}
+	.bg-stretch {
+		background-size: auto 100%;
+		background-repeat: repeat-x;
+		background-position: -33% 91px;
+	}
+}
+.svg-block {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	.holder {
+		position: relative;
+		max-width: 1600px;
+		height: 100%;
+		margin: 0 auto;
+	}
+}
+.kid-1, .kid-2, .kid-3 {
+	position: absolute;
+	bottom: 0;
+	display: inline-block;
+	vertical-align: top;
+	z-index: 2;
+	@include media ('<desktop') {
+		opacity: .4;
+	}
+	@include media ('<tablet') {
+		opacity: 1;
+	}
+	@include media ('<phone') {
+		opacity: .4;
+	}
+}
+.kid-1 {
+	left: -3px;
+	bottom: 73px;
+	@include media ('<tablet') {
+		width: 187px;
+		left: -25px;
+	}
+	@include media ('<phone') {
+		width: 140px;
+		left: -30px;
+	}
+}
+.kid-2 {
+	left: 50%;
+	bottom: 60px;
+	transform: translate(-50%, 0);
+	@include media ('<desktop') {
+		transform: translate(-70%, 0);
+	}
+	@include media ('<tablet') {
+		width: 146px;
+		transform: translate(-61%, 0);
+	}
+	@include media ('<phone') {
+		width: 109px;
+		transform: translate(-50%, 0);
+	}
+}
+.kid-3 {
+	right: 42px;
+	bottom: 65px;
+	@include media ('<widescreen') {
+		right: 10px;
+	}
+	@include media ('<tablet') {
+		width: 232px;
+		right: -45px;
+	}
+	@include media ('<phone') {
+		width: 174px;
+		right: -51px;
+	}
+}
+.butterfly-1, .butterfly-2 {
+	position: absolute;
+	z-index: 2;
+	@include media ('<desktop') {
+		opacity: .4;
+	}
+	@include media ('<tablet') {
+		opacity: 1;
+	}
+	@include media ('<phone') {
+		opacity: .4;
+	}
+}
+.butterfly-1 {
+	top: 5%;
+	right: 4.7%;
+	@include media ('<widescreen') {
+		top: 2%;
+		right: 2%;
+	}
+	@include media ('<tablet') {
+		width: 43px;
+	}
+	@include media ('<phone') {
+		width: 32px;
+	}
+}
+.butterfly-2 {
+	top: 50%;
+	right: 24.2%;
+	transform: translate(0, 4%);
+	@include media ('<widescreen') {
+		right: 30%;
+	}
+	@include media ('<desktop') {
+		right: 35%;
+	}
+	@include media ('<tablet') {
+		right: 35%;
+		top: 60%;
+		width: 30px;
+	}
+	@include media ('<phone') {
+		width: 23px;
+		right: 18%;
+		top: 55%;
+	}
+}

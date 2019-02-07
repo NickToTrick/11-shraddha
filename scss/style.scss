@@ -1,0 +1,723 @@
+/*
+Theme Name: Base
+Author: Anonymous
+Author URI:
+Version: 1
+Description: Base theme for Wordpress
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: base
+Tags: one-column, two-columns
+Theme URI:
+*/
+
+$breakpoints: (
+	'xs-phone': 320px,
+	'phone': 480px,
+	'tablet': 768px,
+	'desktop': 1024px,
+	'widescreen': 1200px
+);
+
+// keywords
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+@import 'vendors/include-media';
+@import 'vendors/normalize';
+@import 'vendors/fonts';
+@import 'vendors/slick';
+
+@import 'base/variables';
+@import 'base/functions';
+@import 'base/mixins';
+@import 'base/helpers';
+@import 'base/reset';
+@import 'base/cms-reset';
+@import 'base/forms';
+@import 'base/wp-reset';
+@import 'base/typography';
+
+@import 'layouts/header';
+@import 'layouts/footer';
+
+#wrapper {
+	position: relative;
+	overflow: hidden;
+}
+.container {
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+a {
+	@include animate(color);
+}
+.bg-stretch{
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	img{
+		display: block;
+		max-width: none;
+		width: 100%;
+	}
+}
+.btn {
+	@include animate(background-color);
+	display: inline-block;
+	vertical-align: top;
+	font-family: $acmesa;
+	text-decoration: none;
+	background-color: $blue;
+	padding: 7px 34px;
+	border-radius: 9px;
+	color: $white;
+	&:hover {
+		background-color: lighten($blue, 10%);
+	}
+}
+main {
+	.container {
+		display: flex;
+		justify-content: space-between;
+		@include media ('<desktop') {
+			flex-wrap: wrap;
+		}
+	}
+	.col {
+		width: 100%;
+		overflow: hidden;
+		padding-right: 10px;
+		@include media ('<desktop') {
+			padding-right: 0;
+		}
+	}
+}
+.banner {
+	position: relative;
+	overflow: hidden;
+	height: 408px;
+	@include media ('<tablet') {
+		height: 285px;
+	}
+	@include media ('<phone') {
+		height: 230px;
+	}
+	.text-block {
+		z-index: 1;
+		position: absolute;
+		top: 10%;
+		right: 4%;
+		@include media ('<phone') {
+			top: 12%;
+			right: 2%;
+		}
+	}
+	.text {
+		width: 100%;
+		display: block;
+		&.top {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 285px;
+			letter-spacing: 0.2px;
+			text-align: center;
+			font-size: 26px;
+			color: $white;
+			font-family: $acmesa;
+			text-transform: uppercase;
+			@include media ('<tablet') {
+				max-width: 195px;
+				font-size: 21px;
+			}
+			@include media ('<phone') {
+				max-width: 143px;
+				font-size: 16px;
+			}
+		}
+		&.middle {
+			max-width: 285px;
+			font-size: 78px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			@include media ('<tablet') {
+				max-width: 195px;
+				font-size: 60px;
+			}
+			@include media ('<phone') {
+				max-width: 143px;
+				font-size: 45px;
+			}
+		}
+		&.bottom {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 285px;
+			font-size: 61px;
+			@include media ('<tablet') {
+				font-size: 45px;
+				max-width: 195px;
+			}
+			@include media ('<phone') {
+				font-size: 34px;
+				max-width: 143px;
+			}
+		}
+		&.middle, &.bottom {
+			letter-spacing: -1px;
+			text-shadow: 0px 4px 0px rgba(0, 1, 1, 0.2);
+			margin-top: -21px;
+			color: $yellow;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif;
+			@include media ('<tablet') {
+				margin-top: -17px;
+			}
+			@include media ('<phone') {
+				margin-top: -10px;
+			}
+		}
+	}
+	.btn-holder {
+		text-align: center;
+	}
+	.btn {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 285px;
+		margin-top: 4px;
+		text-align: center;
+		@include media ('<tablet') {
+			max-width: 195px;
+		}
+		@include media ('<phone') {
+			padding: 7px 20px;
+			max-width: 143px;
+		}
+	}
+	.img-block {
+		position: absolute;
+		z-index: 1;
+		&.first {
+			transform: rotate(-8.5deg);
+			width: 18.5%;
+			left: 35.4%;
+			top: 29.1%;
+			@include media ('<tablet') {
+				left: 34%;
+			}
+			@include media ('<phone') {
+				left: 30%;
+			}
+		}
+		&.second {
+			top: 59.5%;
+			left: 38.8%;
+			width: 39.4%;
+			@include media ('<widescreen') {
+				top: 62%;
+				left: 43%;
+			}
+			@include media ('<tablet') {
+				left: 44%;
+				top: 68%;
+			}
+			@include media ('<phone') {
+				left: 34%;
+				top: 73%;
+			}
+		}
+		&.third {
+			width: 49.6%;
+			left: 0;
+			top: 0;
+			transform: translate(4.5%, 15%);
+			@include media ('<phone') {
+				transform: translate(-10%, 15%);
+			}
+		}
+		&.fourth {
+			width: 70.3%;
+			right: 0;
+			bottom: 0;
+			transform: translate(4.2%, 77%);
+		}
+	}
+	.bg-stretch {
+		@include media ('<widescreen') {
+			background-position: 18% 50%;
+		}
+		@include media ('<desktop') {
+			background-position: 18% 5%;
+		}
+		@include media ('<tablet') {
+			background-position: 12% 10%;
+		}
+		@include media ('<phone') {
+			background-position: 28% 10%;
+		}
+	}
+}
+.welcome-section {
+	padding: 33px 0 0 0;
+	margin: 0 0 42px 0;
+	.heading {
+		text-align: center;
+		padding-left: 37px;
+		margin-bottom: 31px;
+		@include media ('<tablet') {
+			padding-left: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+	h1 {
+		font-weight: normal;
+		margin-bottom: 4px;
+		@include media ('<widescreen') {
+			font-size: 30px;
+		}
+		@include media ('<tablet') {
+			font-size: 24px;
+		}
+		@include media ('<phone') {
+			font-size: 18px;
+		}
+	}
+	a {
+		padding-top: 142%;
+		display: block;
+		overflow: hidden;
+		border-radius: 10px;
+		position: relative;
+		&:hover {
+			&:before {
+				background-color: rgba(0, 0, 0, .2);
+			}
+		}
+		&:before {
+			@include animate(background-color z-index);
+			z-index: 2;
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			background-color: transparent;
+		}
+	}
+	ul {
+		@extend %listreset;
+		display: flex;
+		justify-content: space-between;
+		@include media ('<desktop') {
+			margin-right: -15px;
+			justify-content: center;
+		}
+		@include media ('<tablet') {
+			display: block;
+			margin-right: 0;
+		}
+	}
+	li {
+		width: 29%;
+		@include media ('<desktop') {
+			width: 100%;
+			max-width: 250px;
+			margin-right: 15px;
+		}
+		@include media ('<tablet') {
+			width: auto;
+			max-width: 257px;
+			margin: 0 auto 30px auto;
+		}
+		&:first-child {
+			.bg-col {
+				&:before {
+					border-bottom: 60px solid rgb(57, 181, 74);
+				}
+				&:after {
+					background-color: rgb(57, 181, 74);;
+				}
+			}
+		}
+		&:nth-child(2) {
+			.bg-col {
+				&:before {
+					border-bottom: 60px solid rgb(0, 201, 232);
+				}
+				&:after {
+					background-color: rgb(0, 201, 232);
+				}
+			}
+		}
+		&:last-child {
+			.bg-col {
+				&:before {
+					border-bottom: 60px solid rgb(236, 0, 140);
+				}
+				&:after {
+					background-color: rgb(236, 0, 140);
+				}
+			}
+		}
+	}
+	.text-block {
+		z-index: 1;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		font-size: 14px;
+		color: $white;
+		text-align: center;
+		p {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			margin: 0 15px 11px 15px;
+			position: relative;
+			z-index: 1;
+		}
+		.title {
+			margin: 0 15px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			position: relative;
+			z-index: 1;
+			display: block;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif;
+			color: $white;
+			font-size: 20px;
+			font-weight: normal;
+		}
+		.row {
+			position: relative;
+			z-index: 1;
+			border-top: 1px solid rgba(38, 38, 38, .3);
+			display: flex;
+			justify-content: space-between;
+			span {
+				margin: 9px 0;
+				padding: 2px 7px 8px 7px;
+				width: 50%;
+				display: block;
+				line-height: 1.4;
+			}
+		}
+		.years {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			border-right: 1px solid rgba(38, 38, 38, .3);
+		}
+		.bg-col {
+			opacity: .91;
+			z-index: -1;
+			&:before {
+				z-index: -1;
+				content: '';
+				position: absolute;
+				height: 421px;
+				border-radius: 50%;
+				left: -75px;
+				right: -75px;
+				top: 0;
+				transform: translate(0, -89%);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+			}
+		}
+	}
+}
+.school-section {
+	position: relative;
+	overflow: hidden;
+	padding: 27px 23px 27px 22px;
+	min-height: 404px;
+	margin: 0 0 40px 0;
+	@include media ('<widescreen') {
+		padding: 20px 23px 20px 23px;
+	}
+	@include media ('<tablet') {
+		min-height: 269px
+	}
+	h2 {
+		font-weight: normal;
+		font-size: 34px;
+		margin-bottom: 8px;
+		@include media ('<widescreen') {
+			font-size: 30px;
+		}
+		@include media ('<tablet') {
+			font-size: 24px;
+		}
+		@include media ('<phone') {
+			font-size: 18px;
+		}
+	}
+	.col {
+		z-index: 1;
+		position: relative;
+		max-width: 440px;
+		padding-right: 0;
+		@include media ('<tablet') {
+			max-width: 300px;
+		}
+		.text-block {
+			@include media ('<widescreen') {
+				max-width: 57%;
+			}
+			@include media ('<desktop') {
+				max-width: 70%;
+			}
+			@include media ('<tablet') {
+				max-width: 100%;
+			}
+		}
+	}
+	p {
+		margin-bottom: 14px;
+	}
+	.btn {
+		max-width: 100%;
+		text-transform: none;
+		padding: 10px 26px;
+		@include media ('<phone') {
+			padding: 7px 20px;
+		}
+	}
+	.bg-stretch {
+		@include media ('<widescreen') {
+			background-position: 100% 50%;
+		}
+		@include media ('<tablet') {
+			opacity: .4;
+		}
+	}
+}
+.fecilities-section {
+	text-align: center;
+	margin-bottom: 53px;
+	@include media ('<tablet') {
+		margin-bottom: 30px;
+	}
+	@include media ('<phone') {
+		margin-bottom: 15px;
+	}
+	.heading {
+		max-width: 605px;
+		margin: 0 auto 29px auto;
+		overflow: hidden;
+		@include media ('<tablet') {
+			max-width: 400px;
+		}
+		@include media ('<phone') {
+			margin: 0 auto 20px auto;
+		}
+	}
+	h2 {
+		font-weight: normal;
+		font-size: 34px;
+		margin-bottom: 12px;
+		@include media ('<widescreen') {
+			font-size: 30px;
+		}
+		@include media ('<tablet') {
+			font-size: 24px;
+		}
+		@include media ('<phone') {
+			font-size: 18px;
+		}
+	}
+	ul {
+		@extend %listreset;
+		font-size: 14px;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		max-width: 805px;
+		margin: 0 auto;
+		color: #1e1e1e;
+		@include media ('<tablet') {
+			max-width: 450px;
+		}
+		@include media ('<phone') {
+			flex-wrap: wrap;
+		}
+	}
+	li {
+		max-width: 215px;
+		margin-right: 30px;
+		@include media ('<phone') {
+			max-width: 100%;
+			margin: 0 auto 20px auto;
+		}
+		&:first-child {
+			padding: 14px 0 0 0;
+			img {
+				margin-bottom: 45px;
+				@include media ('<phone') {
+					margin-bottom: 15px;
+				}
+			}
+		}
+		&:nth-child(2) {
+			padding: 4px 0 0 0;
+			img {
+				margin-bottom: 33px;
+				@include media ('<phone') {
+					margin-bottom: 15px;
+				}
+			}
+		}
+		&:last-child {
+			margin-right: 0;
+			@include media ('<phone') {
+				margin: 0 auto 20px auto;
+			}
+			img {
+				margin-bottom: 37px;
+				@include media ('<phone') {
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+	.title {
+		display: block;
+		width: 100%;
+		font-size: 21px;
+		margin-bottom: 10px;
+		color: $blue;
+		@include media ('<phone') {
+			font-size: 18px;
+		}
+	}
+}
+.gallery-section {
+	position: relative;
+	margin-bottom: 51px;
+	@include media ('<desktop') {
+		margin-bottom: 30px;
+	}
+	.heading {
+		overflow: hidden;
+		text-align: center;
+		max-width: 605px;
+		margin: 0 auto 21px auto;
+		@include media ('<tablet') {
+			max-width: 400px;
+		}
+		h2 {
+			font-weight: normal;
+			font-size: 34px;
+			@include media ('<widescreen') {
+				font-size: 30px;
+			}
+			@include media ('<tablet') {
+				font-size: 24px;
+			}
+			@include media ('<phone') {
+				font-size: 18px;
+			}
+		}
+	}
+}
+.slick-slider {
+	margin-right: -10px;
+	padding: 0 24px;
+	@include media ('<desktop') {
+		padding: 0;
+	}
+}
+.slick-slide {
+	padding-right: 5px;
+	img {
+		@include media ('<tablet') {
+			width: 100%;
+		}
+	}
+}
+#sidebar {
+	width: 296px;
+	flex: 0 0 auto;
+	padding-top: 16px;
+	@include media ('<desktop') {
+		width: 100%;
+		margin-bottom: 45px;
+	}
+}
+.accordion {
+	@extend %listreset;
+	font-family: $acmesa;
+	.slide {
+		@extend %listreset;
+		padding: 10px 15px;
+		p {
+			margin-bottom: 0;
+		}
+		li {
+			margin-bottom: 0;
+		}
+	}
+	a {
+		@include animate(background-color);
+		padding: 12px 7px 11px 7px;
+		display: block;
+		text-decoration: none;
+		background-color: $blue;
+		border-radius: 8px;
+		color: $white;
+		&:hover {
+			background-color: lighten($blue, 10%);
+		}
+		img {
+			margin: -3px 14px 0 0;
+		}
+	}
+	li {
+		margin-bottom: 6px;
+	}
+}
+.title-btn {
+	font-size: 18px;
+	background-color: #002b55;
+	padding: 10px 15px 15px 15px;
+	margin-bottom: 6px;
+	color: $yellow;
+	display: block;
+	&:hover {
+		background-color: lighten(#002b55, 10%);
+	}
+}
+
+
